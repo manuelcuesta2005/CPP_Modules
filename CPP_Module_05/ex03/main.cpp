@@ -27,40 +27,5 @@ int main() {
     } catch (std::exception &e) {
         std::cerr << "Excepción: " << e.what() << std::endl;
     }
-
-    std::cout << "\n--- TEST 2: La Lotería de la Robotomía (Grados: 72, 45) ---" << std::endl;
-    try {
-        Bureaucrat bender("Bender", 40);
-        RobotomyRequestForm robot("Fry");
-
-        bender.signForm(robot);
-        bender.executeForm(robot); // Éxito (50% de probabilidad de éxito real)
-        bender.executeForm(robot); // Probamos de nuevo para ver el azar
-    } catch (std::exception &e) {
-        std::cerr << "Excepción: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- TEST 3: El Perdón Presidencial (Grados: 25, 5) ---" << std::endl;
-    try {
-        Bureaucrat ford("Ford Prefect", 20);
-        Bureaucrat zaphod("Zaphod Beeblebrox", 1);
-        PresidentialPardonForm pardon("Arthur Dent");
-
-        ford.signForm(pardon);
-        ford.executeForm(pardon);   // Fallo: Ford es grado 20, necesita grado 5
-        zaphod.executeForm(pardon); // Éxito total
-    } catch (std::exception &e) {
-        std::cerr << "Excepción: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n--- TEST 4: Copias y Asignaciones (Forma Canónica) ---" << std::endl;
-    {
-        PresidentialPardonForm original("Original");
-        PresidentialPardonForm copia(original); // Prueba constructor de copia
-        
-        std::cout << "Original: " << original << std::endl;
-        std::cout << "Copia: " << copia << std::endl;
-    }
-
     return 0;
 }
