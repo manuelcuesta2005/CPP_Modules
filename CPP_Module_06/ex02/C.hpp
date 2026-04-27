@@ -1,3 +1,9 @@
-#include <iostream>
+#ifndef C_HPP
+#define C_HPP
 
-class C { }
+#include <iostream>
+#include "Base.hpp"
+
+class C : public Base { };
+
+#endif

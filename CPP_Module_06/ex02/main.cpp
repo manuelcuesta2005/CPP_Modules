@@ -4,21 +4,22 @@
 #include "C.hpp"
 #include <iostream>
 #include <exception>
+#include <ctime>
 
 Base* generate(void) {
-    int base = std::srand() % 3;
-    switch (base) {
-        case 1:
+    int base = std::rand() % 3;
+        if (base == 0) {
             std::cout << "A" << std::endl;
             return (new A());
-            break;
-        case 2:
-            std::cout << "B" << std::endl;
+		}
+		else if (base == 1) {
+			std::cout << "B" << std::endl;
             return (new B());
-        case 3:
+		}
+		else {
             std::cout << "C" << std::endl;
             return (new C());
-    }
+		}
 }
 
 void identify(Base* p) {
@@ -38,7 +39,7 @@ void	identify(Base& p)
 		std::cout << "A" << std::endl;
 		return;
 	}
-	catch (std::exception&) {}
+	catch (...) { }
 
 	try
 	{
@@ -46,7 +47,7 @@ void	identify(Base& p)
 		std::cout << "B" << std::endl;
 		return;
 	}
-	catch (std::exception&) {}
+	catch (...) { }
 
 	try
 	{
@@ -54,11 +55,18 @@ void	identify(Base& p)
 		std::cout << "C" << std::endl;
 		return;
 	}
-	catch (std::exception&) {}
+	catch (...) {}
 
 	std::cout << "Unknown" << std::endl;
 }
 
 int main() {
-
+	std::srand(std::time(NULL));
+	Base *test = generate();
+	if (test) {
+		identify(test);
+		identify(*test);
+		delete test;
+	}
+	return 0;
 }

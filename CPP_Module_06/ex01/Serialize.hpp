@@ -3,7 +3,7 @@
 struct Data {
     unsigned int    data;
     std::string     message;
-}
+};
 
 class Serializer {
     private:

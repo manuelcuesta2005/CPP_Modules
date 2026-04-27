@@ -6,7 +6,7 @@ Base::Base(const Base& other) {
     (void)other;
 }
 
-Base& operator=(const Base& other) {
+Base& Base::operator=(const Base& other) {
     (void)other;
     return *this;
 }
