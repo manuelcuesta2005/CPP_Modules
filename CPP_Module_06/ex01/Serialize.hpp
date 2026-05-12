@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <stdint.h>
 struct Data {
     unsigned int    data;
     std::string     message;

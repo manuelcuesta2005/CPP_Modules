@@ -23,7 +23,11 @@ void ScalarConverter::convert(const std::string& literal) {
         char* endptr;
         value = std::strtod(literal.c_str(), &endptr);
         if (*endptr != '\0' && !(*endptr == 'f' && *(endptr + 1) == '\0')) {
-            if (!isPseudo(literal)) {
+            if (literal.length() > 1) {
+                std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible" << std::endl;
+                return;
+            }
+            else if (!isPseudo(literal)) {
                 std::cout << "char: impossible\nint: impossible\nfloat: nanf\ndouble: nan" << std::endl;
                 return;
             }

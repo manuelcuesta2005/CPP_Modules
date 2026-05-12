@@ -14,6 +14,5 @@ public:
     static bool isPseudo(const std::string type);
     static bool isChar(const std::string type);
     static bool isInt(const std::string type);
-    static bool isFloat(const std::string type);
     static void printConversion(double value, const std::string& literal);
 };
